@@ -13,7 +13,7 @@ const addBookHandler = (request, h) => {
         reading
     } = request.payload;
 
-    if(name === undefined){
+    if(!name){
         const response = h.response({
             status: 'fail',
             message: 'Gagal menambahkan buku. Mohon isi nama buku'
@@ -155,7 +155,7 @@ const editBookByIdHandler = (request, h) => {
     const index = books.findIndex((book) => book.id === id);
 
     if(index !== -1){
-        if(name === undefined){
+        if(!name){
             const response = h.response({
                 status: 'fail',
                 message: 'Gagal memperbarui buku. Mohon isi nama buku',
